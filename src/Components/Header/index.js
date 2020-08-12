@@ -22,11 +22,13 @@ class Header extends Component {
     render() {
 
         const isLoggedIn = this.context.isLoggedIn
+        const profile = `/profile/${userDb.getUser()}`
 
         if (isLoggedIn) {
             return (
                 <header className={styles.navigation}>
                     <Link title='home' href='/' />
+                    <Link title='profile' href={profile} />
                     <Link title='create' href='/create' />
                     <span className={styles.span} onClick={this.logOut}>logout </span>
                 </header>

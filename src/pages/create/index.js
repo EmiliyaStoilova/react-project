@@ -1,25 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './index.module.css'
 import PageLayout from '../../Components/PageLayout'
 import Title from '../../Components/Title'
 import Button from '../../Components/Buttons'
 import Input from '../../Components/Input'
 import postsDb from '../../firebase/postsDb'
+import userDb from '../../firebase/userDb'
 
 const CreatePage = (props) => {
     
     const [imageUrl, setImageUrl] = useState('')
     const [description, setDescription] = useState('')
 
+    const userId = userDb.getUser()
+    console.log(userId)
+    
     const handleSubmit = (e) => {
         e.preventDefault()
-
-        const creator = localStorage.userId
 
         const body = {
             imageUrl,
             description,
-            creator
+            creator: userId
         }
 
         postsDb.create(body).then(response => {

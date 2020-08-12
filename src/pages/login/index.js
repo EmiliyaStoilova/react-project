@@ -40,7 +40,6 @@ class LoginPage extends Component {
             .then(response => {
                 userDb.setCookie()
                 this.context.logIn()
-                localStorage.setItem('userId', response.user.uid);
                 this.props.history.push('/')
             })
             .catch(e => console.log(e))
@@ -58,7 +57,7 @@ class LoginPage extends Component {
                 <Title title='Login' />
                 <form className={styles.form} onSubmit={this.handleSubmit}>
                     <Input title='Email' id='email' value={email} onChange={(e) => this.onChange(e, 'email')} />
-                    <Input title='Password' id='password' value={password} onChange={(e) => this.onChange(e, 'password')} />
+                    <Input type='password' title='Password' id='password' value={password} onChange={(e) => this.onChange(e, 'password')} />
                     <Button title='Login' />
                 </form>
             </PageLayout>

@@ -10,6 +10,14 @@ const userDb = {
     logout() {
         return firebase.auth().signOut()
     },
+    getUser() {
+        const user = firebase.auth().currentUser;
+
+        if (user != null) {
+            return user.uid
+            
+        }
+    },
     setCookie() {
         return firebase.auth().currentUser.getIdToken(true).then(function (token) {
             // set the __session cookie

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import styles from './index.module.css'
 import PageLayout from '../../Components/PageLayout'
 import Title from '../../Components/Title'
 import Post from '../../Components/Post'
