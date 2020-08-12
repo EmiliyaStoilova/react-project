@@ -1,0 +1,9 @@
+.container {
+    margin: 0 20%;
+}
+
+textarea {
+    width: 69%;
+    height: 40px;
+    float: left;
+}

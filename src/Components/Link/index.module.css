@@ -1,0 +1,21 @@
+.container {
+    display: inline-block;
+    height: auto;
+    cursor: pointer;
+    padding: 0.5%;
+}
+
+.link {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 12px;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: white;
+    text-decoration: none;
+    background-color:  #99004d;
+    font-weight: bold;
+}

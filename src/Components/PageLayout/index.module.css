@@ -1,0 +1,13 @@
+.app {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.container {
+    display: inline-block;
+    width: 90%;
+    min-height: 70vh;
+    border-left:1px solid #cc0066;
+    border-right:1px solid #cc0066;
+    margin: 5% 0 1% 5% ;
+}

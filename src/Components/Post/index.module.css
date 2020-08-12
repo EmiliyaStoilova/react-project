@@ -1,0 +1,14 @@
+.container {
+    display: inline-block;
+    width: 25%;
+    border: 2px solid #cc0066;
+    border-radius: 2px;
+    padding: 2%;
+    margin: 2%;
+    text-align: center;
+}
+
+.image {
+    width: 70%;
+    height: 150px;
+}
