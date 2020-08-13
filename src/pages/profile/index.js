@@ -9,6 +9,7 @@ import modifier from '../../firebase/modifier';
 const ProfilePage = (props) => {
 
     const [post, setPost] = useState([])
+    const [isDelete, setIsDelete] = useState(false)
     const userId = userDb.getUser()
 
     const getPosts = () => {
@@ -19,15 +20,13 @@ const ProfilePage = (props) => {
 
     const handleClick = (e) => {
         const id = e.target.id
-
         postsDb.delete(id).then(res => {
-            
+            setIsDelete(true)
         })
-
+        setIsDelete(false)
     }
 
     const renderPosts = () => {
-
         return post.filter(post => post.creator === userId).map((post) => {
             return (
                 <ProfilePost key={post.id} imageUrl={post.imageUrl} id={post.id} description={post.description} onClick={handleClick} />
@@ -37,7 +36,7 @@ const ProfilePage = (props) => {
 
     useEffect(() => {
         getPosts()
-    }, [])
+    }, [isDelete])
 
     return (
         <PageLayout>

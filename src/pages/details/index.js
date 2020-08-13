@@ -9,30 +9,36 @@ import modifier from '../../firebase/modifier';
 const DetailsPage = (props) => {
 
     const [post, setPost] = useState({})
+    const [likes, setLikes] = useState(0)
+    const [isLiked, setIsLiked] = useState(false)
+
     const postId = props.match.params.postid
     const userId = userDb.getUser()
 
     const getData = () => {
         postsDb.get(postId).then(response => {
             setPost(modifier(response))
+            setLikes(modifier(response).likes.length)
         })
     }
-
+console.log(isLiked)
     const handleClick = (e) => {
+        console.log(e.target.attribute)
         if (!post.likes.includes(userId)) {
             post.likes.push(userId)
             postsDb.put(postId, post)
+            setIsLiked(true)
         }
     }
 
     useEffect(() => {
         getData()
-    }, [])
-    console.log(post.likes)
+    }, [isLiked])
+
     return (
         <PageLayout>
-            <Title title='Deatils' />
-            <PostDetails imageUrl={post.imageUrl} description={post.description} likes={post.likes} onClick={handleClick} />
+            <Title title='Details' />
+            <PostDetails isLiked={isLiked} imageUrl={post.imageUrl} description={post.description} likes={likes} onClick={handleClick} />
         </PageLayout>
     )
 

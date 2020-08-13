@@ -10,6 +10,7 @@
 
 .image {
     width: 50%;
+    max-height: 300px;
     float: left;
     margin-right: 1.5%;
 }
@@ -22,4 +23,11 @@
     height: 40px;
     border-radius: 6px;
     border:none;
+}
+
+.button:hover {
+    background-color: white;
+    color: red;
+    border: 1px solid red;
+    cursor: pointer;
 }
