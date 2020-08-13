@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import UserContext from './Context'
+import userDb from '../src/firebase/userDb'
 
 class Auth extends Component {
 

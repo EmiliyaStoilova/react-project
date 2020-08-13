@@ -15,6 +15,7 @@
 .button:hover{
     background-color: #99004d;
     border: 2px solid #234465;
+    cursor: pointer;
     color: white;
     font-weight: bold;
     font-style: italic;

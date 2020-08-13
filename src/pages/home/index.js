@@ -7,17 +7,17 @@ import modifier from '../../firebase/modifier';
 
 const HomaePage = () => {
 
-  const [post, setPost] = useState([])
+  const [posts, setPosts] = useState([])
 
   const getPosts = () => {
     postsDb.getAll().then(response => {
-      setPost(response.docs.map(modifier))
+      setPosts(response.docs.map(modifier))
     })
   }
 
   const renderPosts = () => {
     
-    return post.map((post) => {
+    return posts.map((post) => {
         return(
             <Post key={post.id} imageUrl={post.imageUrl} id={post.id} />
         )

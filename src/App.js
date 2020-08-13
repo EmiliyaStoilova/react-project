@@ -12,6 +12,7 @@ import LoginPage from '../src/pages/login'
 import RegisterPage from '../src/pages/register'
 import ErrorPage from './pages/error'
 import UserContext from './Context';
+import DetailsPage from './pages/details';
 
 function App() {
   const context = useContext(UserContext)
@@ -23,6 +24,7 @@ function App() {
         <Route exact path='/' component={HomePage} />
         <Route exact path='/create' component={isLoggedIn ? CreatePage : LoginPage} />
         <Route exact path='/profile/:userid' component={isLoggedIn ? ProfilePage : LoginPage} />
+        <Route exact path='/details/:postid' component={isLoggedIn ? DetailsPage : LoginPage} />
         <Route path='/login' component={isLoggedIn ? ErrorPage : LoginPage} />
         <Route path='/register' component={isLoggedIn ? ErrorPage : RegisterPage} />
         <Route component={ErrorPage} />

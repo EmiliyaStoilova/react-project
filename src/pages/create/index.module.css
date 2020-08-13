@@ -6,7 +6,7 @@
     text-align: center;
 }
 
-textarea {
+.textarea {
     border:1px solid #234465;
     padding: 1%;
     margin-left: -5%;

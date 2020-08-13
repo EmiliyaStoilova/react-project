@@ -1,14 +1,15 @@
 import React from 'react'
 import styles from './index.module.css'
 
-const Post = ({ imageUrl, description, id, onClick }) => {
+const PostDetails = ({ imageUrl, description, likes, onClick }) => {
     return (
         <div className={styles.container}>
             <img src={imageUrl} className={styles.image} />
             <p> {description} </p>
-            <button className={styles.button} id={id} onClick={onClick} >Delete</button>
+            <p> Likes: {likes} </p>
+            <button className={styles.button} onClick={onClick} > Like </button>
         </div>
     )
 }
 
-export default Post
+export default PostDetails

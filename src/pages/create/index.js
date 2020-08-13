@@ -21,7 +21,8 @@ const CreatePage = (props) => {
         const body = {
             imageUrl,
             description,
-            creator: userId
+            creator: userId,
+            likes: []
         }
 
         postsDb.create(body).then(response => {
@@ -36,7 +37,7 @@ const CreatePage = (props) => {
                 <form className={styles.form} onSubmit={handleSubmit}>
                     <Input placeholder='imageURL' title='Image Url' id='imageUrl' value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} />
                     <label>Description</label> <br/>
-                    <textarea placeholder='description' value={description} onChange={e => setDescription(e.target.value)} />
+                    <textarea placeholder='description' className={styles.textarea} value={description} onChange={e => setDescription(e.target.value)} />
                     <Button type='submit' title='Add' />
                 </form>
             </div>
