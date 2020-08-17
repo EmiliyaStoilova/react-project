@@ -15,7 +15,8 @@ class LoginPage extends Component {
 
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            error: false
         }
     }
 
@@ -42,14 +43,15 @@ class LoginPage extends Component {
                 this.context.logIn()
                 this.props.history.push('/')
             })
-            .catch(e => console.log(e))
+            .catch(e => this.setState({error: true}))
     }
 
     render() {
 
         const {
             email,
-            password
+            password,
+            error
         } = this.state
 
         return (
@@ -58,6 +60,7 @@ class LoginPage extends Component {
                 <form className={styles.form} onSubmit={this.handleSubmit}>
                     <Input title='Email' id='email' value={email} onChange={(e) => this.onChange(e, 'email')} />
                     <Input type='password' title='Password' id='password' value={password} onChange={(e) => this.onChange(e, 'password')} />
+                    {error ? (<p className={styles.error}>Try again</p>) : null}
                     <Button title='Login' />
                 </form>
             </PageLayout>

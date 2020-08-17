@@ -8,13 +8,13 @@ import postsDb from '../../firebase/postsDb'
 import userDb from '../../firebase/userDb'
 
 const CreatePage = (props) => {
-    
+
     const [imageUrl, setImageUrl] = useState('')
     const [description, setDescription] = useState('')
+    const [error, setError] = useState(false)
 
     const userId = userDb.getUser()
-    console.log(userId)
-    
+
     const handleSubmit = (e) => {
         e.preventDefault()
 
@@ -25,9 +25,13 @@ const CreatePage = (props) => {
             likes: []
         }
 
-        postsDb.create(body).then(response => {
-            props.history.push('/')
-        })
+        if (imageUrl !== '' && description !== '') {
+            postsDb.create(body).then(response => {
+                props.history.push('/')
+            })
+        } else {
+            setError(true)
+        }
     }
 
     return (
@@ -36,8 +40,9 @@ const CreatePage = (props) => {
                 <Title title='Create' />
                 <form className={styles.form} onSubmit={handleSubmit}>
                     <Input placeholder='imageURL' title='Image Url' id='imageUrl' value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} />
-                    <label>Description</label> <br/>
+                    <label>Description</label> <br />
                     <textarea placeholder='description' className={styles.textarea} value={description} onChange={e => setDescription(e.target.value)} />
+                    {error ? (<p className={styles.error}>Fill both inputs</p>) : null}
                     <Button type='submit' title='Add' />
                 </form>
             </div>

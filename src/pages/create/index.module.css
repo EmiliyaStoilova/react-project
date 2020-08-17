@@ -14,3 +14,13 @@
     width: 72%;
     border-radius: 6px;
 }
+
+.error {
+    background-color: red;
+    text-align: center;
+    margin: 3% 9%;
+    padding: 1%;
+    border: 1px solid;
+    border-radius: 6px;
+    width: 80%;
+}

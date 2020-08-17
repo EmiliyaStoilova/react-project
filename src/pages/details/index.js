@@ -17,13 +17,17 @@ const DetailsPage = (props) => {
 
     const getData = () => {
         postsDb.get(postId).then(response => {
-            setPost(modifier(response))
-            setLikes(modifier(response).likes.length)
+            const data = modifier(response)
+            setPost(data)
+            setLikes(data.likes.length)
+            
+            if (data.likes.includes(userDb.getUser())) {
+                setIsLiked(true)
+            }
         })
     }
-console.log(isLiked)
+
     const handleClick = (e) => {
-        console.log(e.target.attribute)
         if (!post.likes.includes(userId)) {
             post.likes.push(userId)
             postsDb.put(postId, post)

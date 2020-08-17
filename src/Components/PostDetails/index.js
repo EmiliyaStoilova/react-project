@@ -7,7 +7,8 @@ const PostDetails = ({ imageUrl, description, likes, isLiked, onClick }) => {
             <img src={imageUrl} className={styles.image} />
             <p> {description} </p>
             <p> Likes: {likes} </p>
-            <button className={isLiked ? styles.liked : styles.button } onClick={onClick} > Like </button>
+            {isLiked ? (<p>You already liked</p>) : (<button className={ styles.button } onClick={onClick} > Like </button>)}
+            
         </div>
     )
 }

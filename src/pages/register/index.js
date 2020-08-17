@@ -16,7 +16,8 @@ class RegisterPage extends Component {
         this.state = {
             email: '',
             password: '',
-            rePassword: ''
+            rePassword: '',
+            error: false
         }
     }
 
@@ -35,7 +36,8 @@ class RegisterPage extends Component {
         const {
             email,
             password,
-            rePassword
+            rePassword,
+            error
         } = this.state
 
         if(password === rePassword) {
@@ -54,7 +56,8 @@ class RegisterPage extends Component {
         const {
             email,
             password,
-            rePassword
+            rePassword,
+            error
         } = this.state
 
         return (
@@ -64,6 +67,7 @@ class RegisterPage extends Component {
                     <Input title='Email' id='email' value={email} onChange={(e) => this.onChange(e, 'email')} />
                     <Input type='password' title='Password' id='password' value={password} onChange={(e) => this.onChange(e, 'password')} />
                     <Input type='password' title='Repeat Password' id='rePassword' value={rePassword} onChange={(e) => this.onChange(e, 'rePassword')} />
+                    {error ? (<p className={styles.error}>Try again</p>) : null}
                     <Button title='Register' />
                 </form>
             </PageLayout>

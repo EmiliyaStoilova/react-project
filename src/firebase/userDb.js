@@ -15,12 +15,10 @@ const userDb = {
 
         if (user != null) {
             return user.uid
-            
         }
     },
     setCookie() {
         return firebase.auth().currentUser.getIdToken(true).then(function (token) {
-            // set the __session cookie
             document.cookie = 'auth-user=' + token + ';max-age=3600';
         })
     }
